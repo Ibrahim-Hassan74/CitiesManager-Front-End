@@ -1,0 +1,113 @@
+<div class="flex flex-col lg:flex-row gap-10 w-full max-w-6xl">
+  <!-- Form Section -->
+  <div
+    class="bg-white p-8 rounded-2xl shadow-2xl w-full self-start max-w-md"
+    id="form-control"
+    style="display: none"
+  >
+    <h2 class="text-2xl font-bold mb-6 text-center text-purple-700">
+      Enter City Name
+    </h2>
+    <form id="cityForm" class="space-y-4">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="e.g. London"
+        class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500"
+        required
+      />
+      <button
+        type="submit"
+        class="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-xl transition-all duration-200"
+      >
+        Submit
+      </button>
+    </form>
+    <div id="result" class="mt-6 text-center text-gray-700 font-medium"></div>
+  </div>
+
+  <!-- Table Section -->
+
+  <div
+    class="bg-white p-6 rounded-2xl shadow-2xl w-full overflow-auto"
+    id="table-container"
+    style="display: none"
+  >
+    <h2 class="text-xl font-bold mb-4 text-purple-700">City List</h2>
+    <table class="min-w-full border border-gray-200 text-left">
+      <thead>
+        <tr class="bg-purple-100 text-purple-800">
+          <th class="py-2 px-4 border-b">ID</th>
+          <th class="py-2 px-4 border-b">City Name</th>
+          <th class="py-2 px-4 border-b">Options</th>
+        </tr>
+      </thead>
+      <tbody id="cityTableBody">
+        <!-- Dynamic rows will appear here -->
+      </tbody>
+    </table>
+    <!-- Update City Modal -->
+    <!-- Update City Modal -->
+    <div
+      id="updateModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden transition-opacity duration-300"
+    >
+      <div
+        id="updateModalBox"
+        class="bg-white p-8 rounded-xl w-full max-w-xl shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <h2 class="text-2xl font-bold mb-6">Update City</h2>
+        <input
+          id="updateCityInput"
+          type="text"
+          class="w-full border border-gray-300 p-3 rounded-lg text-lg mb-6"
+          placeholder="New City Name"
+        />
+        <div class="flex justify-end space-x-4">
+          <button
+            onclick="closeUpdateModal()"
+            class="bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-lg text-lg"
+          >
+            Cancel
+          </button>
+          <button
+            onclick="confirmUpdateCity()"
+            class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg text-lg"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div
+      id="deleteModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 hidden transition-opacity duration-300"
+    >
+      <div
+        id="deleteModalBox"
+        class="bg-white p-8 rounded-xl w-full max-w-xl shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <h2 class="text-2xl font-bold mb-6">
+          Are you sure you want to delete this city?
+        </h2>
+        <div class="flex justify-end space-x-4">
+          <button
+            onclick="closeDeleteModal()"
+            class="bg-gray-300 hover:bg-gray-400 px-6 py-2 rounded-lg text-lg"
+          >
+            Cancel
+          </button>
+          <button
+            onclick="confirmDeleteCity()"
+            class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg text-lg"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <script src="script.js"></script> -->
