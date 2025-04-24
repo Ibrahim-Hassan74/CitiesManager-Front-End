@@ -38,7 +38,7 @@ The backend is built with ASP.NET Core and includes:
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/frontend-cities-spa.git
+git clone https://github.com/Ibrahim-Hassan74/CitiesManager-Front-End
 cd frontend-cities-spa
-# Open index.html with Live Server or any HTTP server
+# Open layout.html with Live Server or any HTTP server
 ```
