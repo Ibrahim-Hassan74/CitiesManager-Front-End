@@ -1,3 +1,59 @@
+import cities from './views/cities.js';
+import index from './views/index.js';
+import login from './views/login.js';
+import register from './views/register.js';
+
+const router = async () => {
+  const routes = [
+    { path: '/', view: index },
+    { path: '/cities', view: cities },
+    { path: '/login', view: login },
+    { path: '/register', view: register },
+  ];
+
+  const p = routes.map((route) => {
+    return {
+      route: route,
+      isMatch: route.path == location.pathname,
+    };
+  });
+  let match = p.find((x) => x.isMatch);
+  if (!match) {
+    match = {
+      route: routes[0],
+      isMatch: true,
+    };
+  }
+  console.log(match);
+  const view = new match.route.view();
+  document.querySelector('#content').innerHTML = await view.getHtml();
+  updateNav();
+  if (isLoggedIn()) {
+    await view.callApi();
+  }
+
+  // console.log(match.route.view());
+};
+
+const navigateTo = (url) => {
+  history.pushState(null, null, url);
+  router();
+  updateNav();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.addEventListener('click', (e) => {
+    if (e.target.matches('[data-link]')) {
+      e.preventDefault();
+      navigateTo(e.target.href);
+    }
+  });
+  router();
+  updateNav();
+});
+
+window.addEventListener('popstate', router);
+
 window.addEventListener('load', () => {
   updateNav();
 });
@@ -42,13 +98,14 @@ async function isLoggedIn() {
   return isLoggedIn;
 }
 async function updateNav() {
-  document.getElementById('loginNav').style.display = isLoggedIn()
+  const check = await isLoggedIn();
+  document.getElementById('loginNav').style.display = check
     ? 'none'
     : 'inline-block';
-  document.getElementById('registerNav').style.display = isLoggedIn()
+  document.getElementById('registerNav').style.display = check
     ? 'none'
     : 'inline-block';
-  document.getElementById('logoutNav').style.display = isLoggedIn()
+  document.getElementById('logoutNav').style.display = check
     ? 'inline-block'
     : 'none';
 }
@@ -65,7 +122,3 @@ function logout() {
     console.log(error);
   }
 }
-
-// updateNav();
-
-// window.onload = () => loadPage('index.html');

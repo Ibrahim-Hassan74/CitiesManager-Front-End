@@ -18,44 +18,49 @@
 
         <ul class="hidden md:flex space-x-6 text-gray-700 font-medium">
           <li>
-            <button
-              onclick="loadPage('index.html')"
-              class="hover:text-purple-600 transition duration-200"
+            <a
+              href="/"
+              class="hover:text-purple-600 transition duration-200 cursor-pointer"
+              data-link
             >
               Home
-            </button>
+            </a>
           </li>
           <li>
-            <button
-              onclick="location.hash = 'cities'"
-              class="hover:text-purple-600 transition duration-200"
+            <a
+              href="cities"
+              class="hover:text-purple-600 transition duration-200 cursor-pointer"
+              data-link
             >
               Cities
-            </button>
+            </a>
           </li>
           <li id="loginNav">
-            <button
-              onclick="location.hash = 'login'"
-              class="hover:text-purple-600 transition duration-200"
+            <a
+              href="login"
+              class="hover:text-purple-600 transition duration-200 cursor-pointer"
+              data-link
             >
               Login
-            </button>
+            </a>
           </li>
           <li id="registerNav">
-            <button
-              onclick="location.hash = 'register'"
-              class="hover:text-purple-600 transition duration-200"
+            <a
+              href="register"
+              class="hover:text-purple-600 transition duration-200 cursor-pointer"
+              data-link
             >
               Register
-            </button>
+            </a>
           </li>
           <li id="logoutNav" class="hidden">
-            <button
+            <a
               onclick="logout()"
-              class="text-red-500 hover:text-red-700 transition duration-200"
+              class="text-red-500 hover:text-red-700 transition duration-200 cursor-pointer"
+              data-link
             >
               Logout
-            </button>
+            </a>
           </li>
         </ul>
 
@@ -87,7 +92,7 @@
     >
       © 2025 Cities Manager. All rights reserved.
     </footer>
-
+    <script src="static/js/index.js" type="module"></script>
     <script src="layout.js"></script>
     <script src="script.js"></script>
   </body>

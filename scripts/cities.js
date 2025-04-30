@@ -75,16 +75,4 @@ function initCities() {
       </div>`;
     document.getElementById('content').append(div);
   }
-  function showLoginMessage() {
-    const messageContainer = document.getElementById('content');
-    messageContainer.innerHTML = `
-      <div class="bg-red-500 text-white p-8 rounded-lg shadow-xl max-w-3xl mx-auto mt-8 transform transition-all duration-500 ease-in-out scale-105">
-        <h2 class="text-3xl font-extrabold mb-4">Your session has expired!</h2>
-        <p class="text-lg mb-6">Your session has ended. Please log in again to continue using the application.</p>
-        <div class="mt-6 text-center">
-          <a href="#login" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 ease-in-out hover:scale-105">Go to Login</a>
-        </div>
-      </div>
-    `;
-  }
 }
